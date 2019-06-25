@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ColorSliders.ViewModel\ColorSliders.ViewModel.csproj">
+      <Project>{d82fc8ce-8929-43c5-bbea-9c32334faa1a}</Project>
+      <Name>ColorSliders.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

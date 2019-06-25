@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ColorSliders.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,20 +21,13 @@ namespace ColorSliders.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        private RectangleColor rectangleColor = new RectangleColor();
         public MainWindow()
         {
             InitializeComponent();
+            MainStackPanel.DataContext = rectangleColor;
         }
 
-        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            //Color color = Color.FromRgb(
-            //    (byte)sliderR.Value,
-            //    (byte)sliderG.Value,
-            //    (byte)sliderB.Value);
-
-            //SlidersColor = color;
-        }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {

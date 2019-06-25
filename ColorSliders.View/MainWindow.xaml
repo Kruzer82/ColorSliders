@@ -49,9 +49,9 @@
                 <TextBlock Grid.Column="0" Grid.Row="1" Text="Green: "/>
                 <TextBlock Grid.Column="0" Grid.Row="2" Text="Blue: "/>
 
-                <Slider x:Name="sliderR" Grid.Column="1" Grid.Row="0" ValueChanged="Slider_ValueChanged"/>
-                <Slider x:Name="sliderG" Grid.Column="1" Grid.Row="1" ValueChanged="Slider_ValueChanged"/>
-                <Slider x:Name="sliderB" Grid.Column="1" Grid.Row="2" ValueChanged="Slider_ValueChanged"/>
+                <Slider x:Name="sliderR" Grid.Column="1" Grid.Row="0" Value="{Binding RedSlider}"/>
+                <Slider x:Name="sliderG" Grid.Column="1" Grid.Row="1" Value="{Binding GreenSlider}"/>
+                <Slider x:Name="sliderB" Grid.Column="1" Grid.Row="2" Value="{Binding BlueSlider}"/>
 
                 <TextBlock x:Name="valueR" Grid.Column="2" Grid.Row="0" Text="{Binding ElementName=sliderR, Path=Value, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"/>
                 <TextBlock x:Name="valueG" Grid.Column="2" Grid.Row="1" Text="{Binding ElementName=sliderG, Path=Value, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"/>
