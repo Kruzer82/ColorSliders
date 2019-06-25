@@ -5,8 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColorSliders.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
         
+         Title="ColorSlider" Height="350" Width="500" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" Closed="Window_Closed">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
+
+        <Style TargetType="{x:Type Slider}">
+            <Setter Property="Maximum" Value="255"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="TickFrequency" Value="1"/>
+            <Setter Property="IsSnapToTickEnabled" Value="True"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel x:Name="MainStackPanel" Margin="10">
+            <Rectangle x:Name="ColorOutputRectangle" Stroke="Black"  Height="200">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="{Binding Path=FullColor, Mode=OneWay}"/>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Grid Height="100">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="195*"/>
+                    <ColumnDefinition Width="18*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Red: "  />
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="Green: "/>
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="Blue: "/>
+
+                <Slider x:Name="sliderR" Grid.Column="1" Grid.Row="0" ValueChanged="Slider_ValueChanged"/>
+                <Slider x:Name="sliderG" Grid.Column="1" Grid.Row="1" ValueChanged="Slider_ValueChanged"/>
+                <Slider x:Name="sliderB" Grid.Column="1" Grid.Row="2" ValueChanged="Slider_ValueChanged"/>
+
+                <TextBlock x:Name="valueR" Grid.Column="2" Grid.Row="0" Text="{Binding ElementName=sliderR, Path=Value, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="valueG" Grid.Column="2" Grid.Row="1" Text="{Binding ElementName=sliderG, Path=Value, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="valueB" Grid.Column="2" Grid.Row="2" Text="{Binding ElementName=sliderB, Path=Value, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"/>
+            </Grid>
+
+        </StackPanel>
     </Grid>
 </Window>

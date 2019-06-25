@@ -24,5 +24,26 @@ namespace ColorSliders.View
         {
             InitializeComponent();
         }
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            //Color color = Color.FromRgb(
+            //    (byte)sliderR.Value,
+            //    (byte)sliderG.Value,
+            //    (byte)sliderB.Value);
+
+            //SlidersColor = color;
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape) Close();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            //currentColor.SaveColor();
+            //  LastSettings.SaveColor(new RectangleColor(SlidersColor.R, SlidersColor.G, SlidersColor.B));
+        }
     }
 }
