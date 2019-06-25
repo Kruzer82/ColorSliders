@@ -4,11 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColorSliders.View"
+        xmlns:vm="clr-namespace:ColorSliders.ViewModel;assembly=ColorSliders.ViewModel"
         mc:Ignorable="d"
         
          Title="ColorSlider" Height="350" Width="500" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" Closed="Window_Closed">
 
     <Window.Resources>
+        <vm:RectangleColor x:Key="rectColor" />
+        
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Margin" Value="0,0,0,5"/>
@@ -25,7 +28,7 @@
     </Window.Resources>
 
     <Grid>
-        <StackPanel x:Name="MainStackPanel" Margin="10">
+        <StackPanel x:Name="MainStackPanel" Margin="10" DataContext="{StaticResource rectColor}">
             <Rectangle x:Name="ColorOutputRectangle" Stroke="Black"  Height="200">
                 <Rectangle.Fill>
                     <SolidColorBrush Color="{Binding Path=FullColor, Mode=OneWay}"/>
