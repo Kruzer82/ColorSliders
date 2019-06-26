@@ -1,6 +1,8 @@
 ﻿using ColorSliders.Model;
 using System.ComponentModel;
 using System.Windows.Media;
+using System.Windows.Input;
+using ColorSliders.ViewModel.Commands;
 
 namespace ColorSliders.ViewModel
 {
@@ -79,5 +81,19 @@ namespace ColorSliders.ViewModel
                     PropertyChanged(this, new PropertyChangedEventArgs(nazwaWłasności));
             }
         }
+
+        private ICommand command;
+
+        public ICommand Reset
+        {
+            get
+            {
+                if (command == null)
+                    command = new ResetCMD(this);
+
+                return command;
+            }
+        }
+
     }
 }

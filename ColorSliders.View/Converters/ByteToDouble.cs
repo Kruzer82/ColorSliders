@@ -4,6 +4,7 @@ using System.Windows.Data;
 
 namespace ColorSliders.View.Converters
 {
+
     public class ByteToDouble : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

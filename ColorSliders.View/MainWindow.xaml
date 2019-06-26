@@ -8,13 +8,14 @@
         xmlns:cvr="clr-namespace:ColorSliders.View.Converters"
         mc:Ignorable="d"
         
-         Title="ColorSlider" Height="350" Width="500" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" Closed="Window_Closed">
+         Title="ColorSlider" Height="380" Width="500" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" Closed="Window_Closed">
+
 
     <Window.Resources>
         <vm:RectangleColor x:Key="rectangleColor"/>
         <cvr:ByteToDouble x:Key="byteToDouble"/>
         <cvr:ColorToSolidColorBrush x:Key="colorToSolidColorBrush"/>
-
+        
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Margin" Value="0,0,0,5"/>
@@ -32,15 +33,13 @@
 
     <Grid>
         <StackPanel x:Name="MainStackPanel" 
-                    Margin="10" 
+                    Margin="10,10,10,0" 
                     DataContext="{StaticResource rectangleColor}">
-            
+
             <Rectangle x:Name="ColorOutputRectangle" 
                        Stroke="Black"  
                        Height="200" 
                        Fill="{Binding FullColor, Converter={StaticResource colorToSolidColorBrush}}"/>
-
-
 
             <Grid Height="100">
                 <Grid.ColumnDefinitions>
@@ -85,6 +84,11 @@
                            Text="{Binding ElementName=sliderB, Path=Value, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
 
+            <Button Content="Reset" 
+                    Height="23" Width="80"
+                    HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                    Command="{Binding Reset}" />
+            
         </StackPanel>
     </Grid>
 </Window>
