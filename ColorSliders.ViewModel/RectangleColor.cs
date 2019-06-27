@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Media;
 using System.Windows.Input;
-using ColorSliders.ViewModel.Commands;
+using System.Windows;
 
 namespace ColorSliders.ViewModel
 {
@@ -82,18 +82,49 @@ namespace ColorSliders.ViewModel
             }
         }
 
-        private ICommand command;
+        #region Commands
+        private ICommand saveCommand;
+
+        public ICommand Save
+        {
+            get
+            {
+                if (saveCommand == null)
+                    saveCommand = new RelayCommand(argument => { LastColorDAL.WriteLastRGB(new RGB(RedSlider, GreenSlider, BlueSlider)); });
+                return saveCommand;
+            }
+        }
+
+        private ICommand resetSlidersCommand;
 
         public ICommand Reset
         {
             get
             {
-                if (command == null)
-                    command = new ResetCMD(this);
-
-                return command;
+                if (resetSlidersCommand == null)
+                {
+                    resetSlidersCommand = new RelayCommand(
+                        argument =>
+                        {
+                            RedSlider = 0;
+                            GreenSlider = 0;
+                            BlueSlider = 0;
+                        },
+                        argument => (RedSlider != 0) || (GreenSlider != 0) || (BlueSlider != 0)
+                    );
+                }
+                return resetSlidersCommand;
             }
         }
+
+        public ICommand ZamknijOkno
+        {
+            get
+            {
+                return new RelayCommand(argument => { (argument as Window).Close();  });
+            }
+        }
+        #endregion
 
     }
 }

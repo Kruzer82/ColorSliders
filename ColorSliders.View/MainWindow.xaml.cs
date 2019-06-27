@@ -10,22 +10,14 @@ namespace ColorSliders.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        //private RectangleColor rectangleColor = new RectangleColor();
+        private RectangleColor rectangleColor = new RectangleColor();
         public MainWindow()
         {
             InitializeComponent();
-         //   MainStackPanel.DataContext = rectangleColor;
+            ColorSliderWindow.DataContext = rectangleColor;
         }
 
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Escape) Close();
-        }
 
-        private void Window_Closed(object sender, EventArgs e)
-        {
-         //   rectangleColor.SaveCurrentColor();
-        }
     }
 }

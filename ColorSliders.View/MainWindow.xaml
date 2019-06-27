@@ -7,12 +7,16 @@
         xmlns:vm="clr-namespace:ColorSliders.ViewModel;assembly=ColorSliders.ViewModel"
         xmlns:cvr="clr-namespace:ColorSliders.View.Converters"
         mc:Ignorable="d"
+        x:Name="ColorSliderWindow"
+        Title="ColorSlider" Height="380" Width="500" WindowStartupLocation="CenterScreen" >
+
+    
+    <Window.InputBindings>
         
-         Title="ColorSlider" Height="380" Width="500" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" Closed="Window_Closed">
-
-
+    </Window.InputBindings>
+    
+    
     <Window.Resources>
-        <vm:RectangleColor x:Key="rectangleColor"/>
         <cvr:ByteToDouble x:Key="byteToDouble"/>
         <cvr:ColorToSolidColorBrush x:Key="colorToSolidColorBrush"/>
         
@@ -30,11 +34,13 @@
             <Setter Property="IsSnapToTickEnabled" Value="True"/>
         </Style>
     </Window.Resources>
-
+        
+    
     <Grid>
+        
+        
         <StackPanel x:Name="MainStackPanel" 
-                    Margin="10,10,10,0" 
-                    DataContext="{StaticResource rectangleColor}">
+                    Margin="10,10,10,0">
 
             <Rectangle x:Name="ColorOutputRectangle" 
                        Stroke="Black"  
