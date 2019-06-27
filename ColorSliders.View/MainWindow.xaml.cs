@@ -17,7 +17,9 @@ namespace ColorSliders.View
             ColorSliderWindow.DataContext = rectangleColor;
         }
 
-
-
+        private void ColorSliderWindow_Closed(object sender, EventArgs e)
+        {
+            rectangleColor.SaveCurrentColor();
+        }
     }
 }

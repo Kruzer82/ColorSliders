@@ -83,17 +83,6 @@ namespace ColorSliders.ViewModel
         }
 
         #region Commands
-        private ICommand saveCommand;
-
-        public ICommand Save
-        {
-            get
-            {
-                if (saveCommand == null)
-                    saveCommand = new RelayCommand(argument => { LastColorDAL.WriteLastRGB(new RGB(RedSlider, GreenSlider, BlueSlider)); });
-                return saveCommand;
-            }
-        }
 
         private ICommand resetSlidersCommand;
 
@@ -117,7 +106,7 @@ namespace ColorSliders.ViewModel
             }
         }
 
-        public ICommand ZamknijOkno
+        public ICommand CloseWindow
         {
             get
             {
