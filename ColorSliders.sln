@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorSliders.Model", "Color
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorSliders.ViewModel", "ColorSliders.ViewModel\ColorSliders.ViewModel.csproj", "{D82FC8CE-8929-43C5-BBEA-9C32334FAA1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorSliders.UnitTests", "ColorSliders.UnitTests\ColorSliders.UnitTests.csproj", "{7A8165B7-5AB4-4A3E-9BB7-B077B48A879F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D82FC8CE-8929-43C5-BBEA-9C32334FAA1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D82FC8CE-8929-43C5-BBEA-9C32334FAA1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D82FC8CE-8929-43C5-BBEA-9C32334FAA1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A8165B7-5AB4-4A3E-9BB7-B077B48A879F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A8165B7-5AB4-4A3E-9BB7-B077B48A879F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A8165B7-5AB4-4A3E-9BB7-B077B48A879F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A8165B7-5AB4-4A3E-9BB7-B077B48A879F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
